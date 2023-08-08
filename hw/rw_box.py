@@ -9,11 +9,11 @@ import matplotlib.pyplot as plt
 
 def get_option():
     argparser=ArgumentParser()
-    argparser.add_argument('--init_a', default=1, help='initailize a')
-    argparser.add_argument('--init_b', default=1, help='initialize b')
-    argparser.add_argument('--prob_r', default=0.3, help='probability for r')
-    argparser.add_argument('--data_len', default=150, help='length for data')
-    argparser.add_argument('--save_interval', default=10, help='interval step')
+    argparser.add_argument('--init_a', default=1, help='initailize a', type=float)
+    argparser.add_argument('--init_b', default=1, help='initialize b', type=float)
+    argparser.add_argument('--prob_r', default=0.3, help='probability for r', type=float)
+    argparser.add_argument('--data_len', default=150, help='length for data', type=int)
+    argparser.add_argument('--save_interval', default=10, help='interval step', type=int)
     argparser.add_argument('--save_dir', default="./pictures", help='save directory')
     return argparser.parse_args()
 
@@ -51,7 +51,7 @@ def main(args):
         if (step % save_interval == 0):
             vis_mu_distribution(save_dir, step, a_hut, b_hut)
             print (mu)
-            
+
 if __name__ =="__main__":
     args=get_option()
     main(args)
